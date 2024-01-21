@@ -9,25 +9,28 @@ export default {
       type: 'string',
     },
     {
-      title: 'IsRented',
-      name: 'isRented',
-      type: 'boolean',
+      title: 'Quantity',
+      name: 'quantity',
+      type: 'number',
+    },
+    {
+      title: 'Rent',
+      name: 'rente',
+      type: 'number',
+    },
+    {
+      title: 'Borrower',
+      name: 'borrower',
+      type: 'object',
+      fields: [
+        { title: 'User', name: 'user', type: 'reference', to: [{ type: 'user' }] },
+        { title: 'RentDate', name: 'rentDate', type: 'datetime' },
+      ],
     },
     {
       title: 'Image',
       name: 'imgURL',
       type: 'string',
-    },
-    {
-      title: 'Borrower',
-      name: 'borrower',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{ type: 'user' }],
-        },
-      ],
     },
     {
       title: 'RentalHistory',
@@ -44,8 +47,13 @@ export default {
               to: [{ type: 'user' }],
             },
             {
-              title: 'Datetime',
-              name: 'datetime',
+              title: 'RentDate',
+              name: 'rentDate',
+              type: 'datetime',
+            },
+            {
+              title: 'ReturnDate',
+              name: 'returnDate',
               type: 'datetime',
             },
           ],
