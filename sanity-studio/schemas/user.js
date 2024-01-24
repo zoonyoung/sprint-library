@@ -4,11 +4,6 @@ export default {
   type: 'document',
   fields: [
     {
-      title: 'Username',
-      name: 'username',
-      type: 'string',
-    },
-    {
       title: 'Name',
       name: 'name',
       type: 'string',
@@ -19,34 +14,23 @@ export default {
       type: 'string',
     },
     {
-      title: 'ImageURL',
-      name: 'imageURL',
+      title: 'Image',
+      name: 'image',
       type: 'string',
     },
     {
-      title: 'BorrowedBooks',
-      name: 'borrowedbooks',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{ type: 'book' }],
-        },
-      ],
-    },
-    {
       title: 'IsRegister',
-      name: 'isregister',
+      name: 'isRegister',
       type: 'boolean',
     },
     {
       title: 'IsAdmin',
-      name: 'isadmin',
+      name: 'isAdmin',
       type: 'boolean',
     },
     {
-      title: 'UID',
-      name: 'uid',
+      title: 'Id',
+      name: 'id',
       type: 'string',
     },
   ],

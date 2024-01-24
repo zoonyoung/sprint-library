@@ -15,50 +15,13 @@ export default {
     },
     {
       title: 'Rent',
-      name: 'rente',
+      name: 'rent',
       type: 'number',
     },
     {
-      title: 'Borrower',
-      name: 'borrower',
-      type: 'object',
-      fields: [
-        { title: 'User', name: 'user', type: 'reference', to: [{ type: 'user' }] },
-        { title: 'RentDate', name: 'rentDate', type: 'datetime' },
-      ],
-    },
-    {
       title: 'Image',
-      name: 'imgURL',
+      name: 'image',
       type: 'string',
-    },
-    {
-      title: 'RentalHistory',
-      name: 'RentalHistory',
-      type: 'array',
-      of: [
-        {
-          type: 'object',
-          fields: [
-            {
-              title: 'User',
-              name: 'user',
-              type: 'reference',
-              to: [{ type: 'user' }],
-            },
-            {
-              title: 'RentDate',
-              name: 'rentDate',
-              type: 'datetime',
-            },
-            {
-              title: 'ReturnDate',
-              name: 'returnDate',
-              type: 'datetime',
-            },
-          ],
-        },
-      ],
     },
   ],
 }
