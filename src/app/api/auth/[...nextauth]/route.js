@@ -3,7 +3,7 @@ import { addUser } from '@/service/user';
 import NextAuth from 'next-auth/next';
 import GitHubProvider from 'next-auth/providers/github';
 
-const handler = NextAuth({
+export const authOptions = {
   providers: [
     GitHubProvider({
       clientId: process.env.GITHUB_ID || '',
@@ -36,6 +36,8 @@ const handler = NextAuth({
       return session;
     },
   },
-});
+};
+
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };

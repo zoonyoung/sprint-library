@@ -8,8 +8,10 @@ export const Button = ({
   onClick: () => void;
 }) => {
   return (
-    <div className='p-1 bg-gradient-to-r from-purple-700 via-purple-500 to-purple-400'>
-      <button className='bg-white p-2 hover:opacity-80' onClick={onClick}>
+    <div className='p-1 bg-purple-600 rounded-lg hover:shadow-xl hover:scale-95'>
+      <button
+        className='bg-purple-600 p-2 hover:bg-purple-500 rounded-lg text-white'
+        onClick={onClick}>
         {children}
       </button>
     </div>
