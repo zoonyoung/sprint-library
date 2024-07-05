@@ -1,7 +1,12 @@
 {
-  "extends": ["stylelint-config-recess-order", "stylelint-config-standard-scss"],
+  "extends": ["stylelint-config-idiomatic-order", "stylelint-config-prettier-scss", "stylelint-config-standard-scss"],
+  "plugins": ["stylelint-scss", "stylelint-order"],
+  "ignoreFiles": ["@/src/styles/reset.scss"],
   "rules": {
+    "color-hex-length": "long",
     "selector-class-pattern": "^([a-z][a-zA-Z0-9]*)$",
-    "scss/load-no-partial-leading-underscore": null
+    "scss/at-mixin-pattern": "^.[a-z]+(-[a-z0-9])*",
+    "scss/dollar-variable-pattern": "^.[a-z]+(-[a-z0-9])*",
+    "scss/percent-placeholder-pattern": "^.[a-z]+(-[a-z0-9])*"
   }
 }
