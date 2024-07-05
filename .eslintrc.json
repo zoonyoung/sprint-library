@@ -1,47 +1,36 @@
 {
-  "root": true,
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "prettier", "import"],
-  "parserOptions": {
-    "project": "./tsconfig.json"
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
   },
-  "extends": [
-    "next/core-web-vitals",
-    "airbnb",
-    "airbnb-typescript",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-    "prettier"
-  ],
-  "ignorePatterns": ["next.config.mjs"],
+  "parser": "@typescript-eslint/parser",
+  "extends": ["eslint:recommended", "next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
+
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "requireConfigFile": false
+  },
+  "plugins": ["react", "@typescript-eslint", "import"],
+
   "rules": {
-    "react/require-default-props": "off",
-    "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
-    "react/jsx-props-no-spreading": "off",
-    "prettier/prettier": ["error"],
-    "react/function-component-definition": "off",
-    "react/jsx-no-useless-fragment": "off",
-    "no-restricted-imports": ["error", { "patterns": ["..*"] }],
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
-    "import/prefer-default-export": "off",
-    "react/require-default-props": "off",
     "import/order": [
       "error",
       {
-        "groups": ["builtin", "external", "internal", ["parent", "sibling"], "index", "object", "type"],
-        "pathGroups": [
-          {
-            "pattern": "next",
-            "group": "builtin",
-            "position": "before"
-          }
-        ],
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        }
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object", "type"]
       }
-    ]
+    ],
+    "@typescript-eslint/no-explicit-any": 0,
+    "semi": ["error", "always"],
+    "quotes": ["error", "double"],
+    "react/prop-types": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "react/no-unused-state": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+    "react/react-in-jsx-scope": "off",
+    "array-callback-return": 0,
+    "react/self-closing-comp": "error"
   }
 }
