@@ -78,9 +78,6 @@ importers:
       stylelint-config-prettier-scss:
         specifier: ^1.0.0
         version: 1.0.0(stylelint@16.6.1(typescript@5.5.2))
-      stylelint-config-recess-order:
-        specifier: ^5.0.1
-        version: 5.0.1(stylelint@16.6.1(typescript@5.5.2))
       stylelint-config-standard-scss:
         specifier: ^13.1.0
         version: 13.1.0(postcss@8.4.38)(stylelint@16.6.1(typescript@5.5.2))
@@ -1752,11 +1749,6 @@ packages:
     hasBin: true
     peerDependencies:
       stylelint: '>=15.0.0'
-
-  stylelint-config-recess-order@5.0.1:
-    resolution: {integrity: sha512-rKbGkoa3h0rINrGln9TFVowvSCLgPJC5O0EuPiqlqWcJMb1lImEtXktcjFCVz+hwtSUiHD3ijJc3vP9muFOgJg==}
-    peerDependencies:
-      stylelint: '>=16'
 
   stylelint-config-recommended-scss@14.0.0:
     resolution: {integrity: sha512-HDvpoOAQ1RpF+sPbDOT2Q2/YrBDEJDnUymmVmZ7mMCeNiFSdhRdyGEimBkz06wsN+HaFwUh249gDR+I9JR7Onw==}
@@ -3795,11 +3787,6 @@ snapshots:
   stylelint-config-prettier-scss@1.0.0(stylelint@16.6.1(typescript@5.5.2)):
     dependencies:
       stylelint: 16.6.1(typescript@5.5.2)
-
-  stylelint-config-recess-order@5.0.1(stylelint@16.6.1(typescript@5.5.2)):
-    dependencies:
-      stylelint: 16.6.1(typescript@5.5.2)
-      stylelint-order: 6.0.4(stylelint@16.6.1(typescript@5.5.2))
 
   stylelint-config-recommended-scss@14.0.0(postcss@8.4.38)(stylelint@16.6.1(typescript@5.5.2)):
     dependencies:

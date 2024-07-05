@@ -17,11 +17,11 @@ figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	padding: 0;
+	border: 0;
 	margin: 0;
 	font: inherit;
 	font-size: 100%;
 	vertical-align: baseline;
-	border: 0;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -49,6 +49,6 @@ q::before, q::after {
 }
 
 table {
-	border-spacing: 0;
 	border-collapse: collapse;
+	border-spacing: 0;
 }
