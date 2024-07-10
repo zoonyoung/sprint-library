@@ -30,6 +30,7 @@ export const addTempUser = async (name: string, email: string, image: string) =>
       email: email,
       image: image,
       course: "",
+      cohort: 0,
       isSignUp: false,
       isRegister: false,
       isAdmin: false,
