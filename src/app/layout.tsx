@@ -1,6 +1,9 @@
-import type { Metadata } from "next";
-import "@/styles/_reset.scss";
+import { Open_Sans } from "next/font/google";
+import Header from "@/components/Header";
 import "@/styles/_globals.scss";
+import "@/styles/_reset.scss";
+import { auth } from "./auth";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -11,10 +14,16 @@ interface Props {
   children: React.ReactNode;
 }
 
-const RootLayout = ({ children }: Props) => {
+const openSans = Open_Sans({ subsets: ["latin"] });
+
+const RootLayout = async ({ children }: Props) => {
+  const session = await auth();
   return (
     <html>
-      <body>{children}</body>
+      <body className={openSans.className}>
+        <Header session={session} />
+        {children}
+      </body>
     </html>
   );
 };
