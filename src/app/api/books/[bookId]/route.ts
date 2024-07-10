@@ -3,6 +3,7 @@ import { auth } from "@/app/auth";
 import { db } from "@/utils/kysely";
 
 export async function GET(request: NextRequest, { params }: { params: { bookId: string } }) {
+
   try {
     const session = await auth();
     const userId = session?.user.id;
