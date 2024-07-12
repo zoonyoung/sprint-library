@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.logo {
+  font-size: 1.6rem;
+}
+
+.avatarBox {
+  display: flex;
+  gap: 1rem;
+}
