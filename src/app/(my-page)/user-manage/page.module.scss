@@ -1,0 +1,14 @@
+@import "@/styles/_index";
+
+.title {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.circle {
+  width: 0.5rem;
+  height: 0.5rem;
+  color: $purple-600;
+}

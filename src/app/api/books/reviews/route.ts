@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
+
 import { auth } from "@/app/auth";
 import { db } from "@/utils/kysely";
+
+// TODO: BookId-Conditional(GET) Admin-Conditional(POST)
 
 export async function GET(request: NextRequest, { params }: { params: { bookId: string } }) {
   const bookId = parseInt(params.bookId);

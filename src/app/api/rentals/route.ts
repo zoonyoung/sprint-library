@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
+
 import { auth } from "@/app/auth";
 import { db } from "@/utils/kysely";
+
+// TODO: User-Conditional(GET, POST)
 
 export async function GET(request: NextRequest) {
   const page = parseInt(request.nextUrl.searchParams.get("page") || "1");
@@ -15,7 +18,6 @@ export async function GET(request: NextRequest) {
     .execute();
 
   const totalCount = await db.selectFrom("rentals").select(db.fn.count("id").as("count")).executeTakeFirstOrThrow();
-
   const totalPages = Math.ceil(Number(totalCount.count) / pageSize);
   const nextPage = page < totalPages ? page + 1 : null;
 
@@ -32,7 +34,7 @@ export async function POST(request: NextRequest) {
   const session = await auth();
   const userId = session?.user.id || null;
   if (!userId) {
-    return NextResponse.json({ error: "Permission denied" }, { status: 404 });
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   const book = await db

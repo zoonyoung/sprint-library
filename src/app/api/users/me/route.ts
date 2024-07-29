@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
+
 import { auth } from "@/app/auth";
 import { db } from "@/utils/kysely";
+
+// TODO: user Conditional
 
 export async function GET() {
   const session = await auth();

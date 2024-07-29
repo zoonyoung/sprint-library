@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
+
 import { db } from "@/utils/kysely";
+
+// TODO: User-Conditional(PATCH)
 
 export async function PATCH(request: NextRequest, { params }: { params: { rentalId: string } }) {
   const rentalId = parseInt(params.rentalId);

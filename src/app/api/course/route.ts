@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
+
 import { auth } from "@/app/auth";
 import { db } from "@/utils/kysely";
+
+// TODO: Admin-Conditional(POST)
 
 export async function GET() {
   const course = await db.selectFrom("course").selectAll().execute();

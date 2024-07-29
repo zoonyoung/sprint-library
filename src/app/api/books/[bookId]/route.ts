@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
+
 import { auth } from "@/app/auth";
 import { db } from "@/utils/kysely";
 
+// TODO: Admin-conditional(PATCH)
 export async function GET(request: NextRequest, { params }: { params: { bookId: string } }) {
-
   try {
     const session = await auth();
     const userId = session?.user.id;
@@ -30,7 +31,7 @@ export async function GET(request: NextRequest, { params }: { params: { bookId: 
       isFavorite = !!favorite;
     }
 
-    return NextResponse.json({ ...book, isFavorite });
+    return NextResponse.json({ item: { ...book, isFavorite } });
   } catch (error) {
     console.error("Error fetching book:", error);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });

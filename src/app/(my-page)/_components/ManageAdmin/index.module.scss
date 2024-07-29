@@ -1,0 +1,29 @@
+@import "@/styles/_index";
+
+.contentBox {
+  display: flex;
+  gap: 1rem;
+}
+
+.title {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.content {
+  flex: 1;
+}
+
+.circle {
+  width: 0.5rem;
+  height: 0.5rem;
+  color: $purple-600;
+}
+
+.adminBox {
+  display: flex;
+  flex-direction: column;
+  @include border-box;
+}

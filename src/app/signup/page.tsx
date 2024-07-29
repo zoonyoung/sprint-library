@@ -1,9 +1,13 @@
 "use client";
 
+import { useState } from "react";
+
 import { signIn } from "next-auth/react";
 import { FormProvider, useForm } from "react-hook-form";
+
 import DropDown from "@/components/Dropdown";
 import Input from "@/components/Input";
+import ToggleSwitch from "@/components/ToggleSwitch";
 
 const COURSE_LIST = [
   { value: "frontend4", label: "프론트엔드 4기" },
@@ -17,6 +21,11 @@ type FieldValues = {
 
 const SignUpPage = () => {
   const methods = useForm<FieldValues>();
+  const [isRegisterAdmin, setIsRegisterAdmin] = useState(false);
+
+  const handleSwitchClick = () => {
+    setIsRegisterAdmin(prev => !prev);
+  };
 
   const onSubmit = async (formValue: FieldValues) => {
     const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/users`, {
@@ -24,17 +33,17 @@ const SignUpPage = () => {
       body: JSON.stringify(formValue),
     });
     if (response.ok) {
-      const res = await signIn("github", { callbackUrl: "/" });
-      console.log(res);
+      signIn("github", { callbackUrl: "/" });
     }
   };
 
   return (
     <div>
+      <ToggleSwitch isChecked={isRegisterAdmin} onClick={handleSwitchClick} />
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
           <Input name="name" />
-          <DropDown name="course" optionList={COURSE_LIST} />
+          {isRegisterAdmin || <DropDown name="course" optionList={COURSE_LIST} />}
           <button type="submit">제출하기</button>
         </form>
       </FormProvider>

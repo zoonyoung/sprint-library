@@ -24,7 +24,6 @@ interface BookTable {
   tags: string[];
   quantity: number;
   rent: number;
-  favoriteCount: number;
   createdAt: Date;
   updatedAt: Date;
 }

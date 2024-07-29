@@ -2,6 +2,7 @@ import NextAuth, { User } from "next-auth";
 import GitHub from "next-auth/providers/github";
 import "next-auth/jwt";
 import { AdapterUser } from "next-auth/adapters";
+
 import { addTempUser, getUserByEmail } from "./api/_utils";
 
 type DbUser = {

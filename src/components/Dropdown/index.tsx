@@ -1,5 +1,7 @@
 import { HTMLAttributes } from "react";
+
 import { RegisterOptions, useFormContext } from "react-hook-form";
+
 import styles from "./index.module.scss";
 
 type DropDownOption = { value: string; label: string }[];

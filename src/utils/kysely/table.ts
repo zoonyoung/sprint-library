@@ -1,4 +1,5 @@
 import { sql } from "kysely";
+
 import { db } from ".";
 
 export async function seed() {

@@ -1,0 +1,14 @@
+@import "@/styles/_index";
+
+.container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  gap: 1rem;
+}
+
+.contentBox {
+  flex: 1;
+  background: $gray-100;
+  padding: 2rem;
+}

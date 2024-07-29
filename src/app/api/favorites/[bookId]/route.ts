@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
+
 import { auth } from "@/app/auth";
 import { db } from "@/utils/kysely";
 
-export async function POST(request: NextRequest, { params }: { params: { bookId: string } }) {
+// TODO: User-Conditional(POST, DELETE)
 
+export async function POST(request: NextRequest, { params }: { params: { bookId: string } }) {
   try {
     const session = await auth();
     const userId = session?.user.id;
@@ -48,7 +50,6 @@ export async function POST(request: NextRequest, { params }: { params: { bookId:
 }
 
 export async function DELETE(request: NextRequest, { params }: { params: { bookId: string } }) {
-
   try {
     const session = await auth();
     const userId = session?.user.id;
@@ -61,13 +62,12 @@ export async function DELETE(request: NextRequest, { params }: { params: { bookI
       .where("userId", "=", userId)
       .where("bookId", "=", bookId)
       .executeTakeFirst();
-    
+
     if (Number(result.numDeletedRows) === 0) {
       return NextResponse.json({ error: "Favorite not found" });
     }
-    
+
     return NextResponse.json({ message: "Book removed from favorites successfully" });
-    
   } catch (error) {
     console.error("Error removing from favorites:", error);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });

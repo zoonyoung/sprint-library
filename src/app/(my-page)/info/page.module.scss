@@ -1,0 +1,52 @@
+@import "@/styles/_index";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.avatarBox {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  @include border-box;
+}
+
+.avatarImage {
+  border-radius: 50%;
+}
+
+.avatarDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contentBox {
+  display: flex;
+  gap: 1rem;
+}
+
+.title {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.content {
+  flex: 1;
+}
+
+.circle {
+  width: 0.5rem;
+  height: 0.5rem;
+  color: $purple-600;
+}
+
+.adminBox {
+  display: flex;
+  flex-direction: column;
+  @include border-box;
+}

@@ -1,4 +1,5 @@
 @use "sass:map";
+@import "./variables";
 
 $breakpoints: (
   mobile: "screen and (max-width: 767px)",
@@ -10,4 +11,12 @@ $breakpoints: (
   @media #{map.get($breakpoints, $breakpoint)} {
     @content;
   }
+}
+
+@mixin border-box {
+  padding: 1rem;
+  background: white;
+  width: 100%;
+  border: 1px solid $gray-300;
+  border-radius: 8px;
 }

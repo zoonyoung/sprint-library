@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
+
 import { db } from "@/utils/kysely";
 
+// TODO: userConditional(GET) adminConditional(PATCH)
+//
 export async function GET(request: NextRequest, { params }: { params: { userId: string } }) {
   const userId = parseInt(params.userId);
 

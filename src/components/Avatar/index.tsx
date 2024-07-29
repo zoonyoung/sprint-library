@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
-import Head from "next/head";
+
+import { DEFAULT_PROFILE_ICON } from "@/constants";
+
 import styles from "./index.module.scss";
 
 interface Props {
@@ -9,15 +13,17 @@ interface Props {
 
 const Avatar = ({ name, image }: Props) => {
   return (
-    <>
-      <Head>
-        <link rel="preload" href="/_next/static/css/app/layout.css" as="style" />
-      </Head>
-      <div className={styles.container}>
-        <Image className={styles.image} src={image || ""} alt="avatar" width={60} height={60} priority={true} />
-        <span>{name}</span>
-      </div>
-    </>
+    <div className={styles.container}>
+      <Image
+        alt="avatar"
+        className={styles.image}
+        height={60}
+        priority={true}
+        src={image || DEFAULT_PROFILE_ICON}
+        width={60}
+      />
+      <span>{name}</span>
+    </div>
   );
 };
 export default Avatar;
