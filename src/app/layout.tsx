@@ -1,8 +1,14 @@
 import { Open_Sans } from "next/font/google";
+import { SessionProvider } from "next-auth/react";
+
 import Header from "@/components/Header";
 import "@/styles/_globals.scss";
 import "@/styles/_reset.scss";
+import QueryProvider from "@/utils/QueryProvider";
+
 import { auth } from "./auth";
+import styles from "./layout.module.scss";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -21,8 +27,12 @@ const RootLayout = async ({ children }: Props) => {
   return (
     <html>
       <body className={openSans.className}>
-        <Header session={session} />
-        {children}
+        <SessionProvider session={session}>
+          <QueryProvider>
+            <Header session={session} />
+            <main className={styles.main}>{children}</main>
+          </QueryProvider>
+        </SessionProvider>
       </body>
     </html>
   );
